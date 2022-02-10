@@ -13,7 +13,7 @@ class Solution
             {
                StringBuilder str= new StringBuilder();
                 
-               while (i <= s.length() - 1 && s.charAt(i) >= '0' && s.charAt(i) <= '9')
+               while (i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9')
                {
                    str.append(s.charAt(i));
                    i++;
