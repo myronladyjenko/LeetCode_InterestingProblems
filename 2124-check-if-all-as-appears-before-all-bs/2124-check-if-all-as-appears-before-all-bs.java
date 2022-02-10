@@ -2,33 +2,19 @@ class Solution
 {
     public boolean checkString(String s) 
     {
-        int i = 0;
+        int check = 0;
         
-        while (true)
-        {         
-            int firstA = s.indexOf("a");
-            int firstB = s.indexOf("b", i);
-            
-            if (firstB == -1)
+        for(int i = 0; i < s.length(); i++)
+        {
+            if (s.charAt(i)=='b')
             {
-                return true;
+               check = 1;
             }
-            
-            if (firstA == firstB)
+            if (check == 1 && s.charAt(i) == 'a')
             {
-                break;
+               return false;
             }
-            
-            if (firstA < firstB)
-            {
-               s = s.replaceFirst("a", "b");
-               i++;
-            }
-            else
-            {
-                return false;
-            } 
-        } 
+        }
         
         return true;
     }
