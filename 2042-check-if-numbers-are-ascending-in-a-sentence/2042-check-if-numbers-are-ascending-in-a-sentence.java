@@ -2,8 +2,8 @@ class Solution
 {
     public boolean areNumbersAscending(String s) 
     {
-        int x = 0;
         int resF = -1;
+        int num = 0;
         
         for (int i = 0; i < s.length(); i++)
         {
@@ -12,7 +12,6 @@ class Solution
             if (c >= '0' && c <= '9')
             {
                StringBuilder str= new StringBuilder();
-               int num = 0;
                 
                while (i <= s.length() - 1 && s.charAt(i) >= '0' && s.charAt(i) <= '9')
                {
