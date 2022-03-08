@@ -2,67 +2,45 @@ class Solution
 {
     public int[] sortArray(int[] arr) 
     {
-        return binarySort(arr);
+        return quickSort(0, arr.length - 1, arr);
     }
     
-    public int findIndex(int[] arr, int elementIndex, int right)
+    public int[] quickSort(int low, int high, int[] arr)
     {
-        int left = 0;
-        int middle=0;
-        
-             while(left<right)
-             {
-                middle=(left+right)/2;
-                
-                if(arr[elementIndex]==arr[middle])
-                {
-                    return middle;
-                }
-                
-                if (arr[elementIndex]<arr[middle])
-                {
-                   right=middle;
-                }
-                else
-                {
-                   left=middle+1;
-                }
-             }
-             middle=(left+right)/2;
-            
-        return middle;
-    }
-    
-    public int[] binarySort(int[] arr)
-    {
-        int f=1;
-        int temp=0;
-        int tempN=0;
-  
-        int[] arrFinal = new int[arr.length];
-        
-        arrFinal[0]=arr[0];
-         
-        for (int i=1; i<arr.length; i++)
+        if (low < high)
         {
-            arrFinal[i]=arr[i];
-            int mid = findIndex(arrFinal, i, f);
-            
-               if(mid<i)
-               {
-                  temp=arrFinal[mid];
-                  arrFinal[mid]=arr[i];
-                  
-                  for(int r=mid+1; r<=i; r++)
-                  {
-                      tempN=arrFinal[r];
-                      arrFinal[r]=temp;
-                      temp=tempN;
-                  }
-               }
+            int middleIndex = findPartition(low, high, arr);
 
-            f++;
+            quickSort(low, middleIndex - 1, arr);
+            quickSort(middleIndex + 1, high, arr);
         }
-        return arrFinal;
+        
+        return arr;
+     }
+
+    public int findPartition(int low, int high, int[] arr)
+    {
+        int pivot = arr[high];
+    
+        int index = low - 1;
+    
+        for (int i = low; i < high; i++)
+        {
+            if (arr[i] < pivot)
+            {
+                index++;
+                swap(arr, i, index);
+            }
+        }
+
+        swap(arr, index + 1, high);
+        return index + 1;
+    } 
+
+    public void swap(int[] arr, int index1, int index2)
+    {
+        int temp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = temp;     
     }
 }
