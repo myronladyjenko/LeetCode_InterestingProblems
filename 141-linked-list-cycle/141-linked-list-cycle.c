@@ -7,20 +7,23 @@
  */
 bool hasCycle(struct ListNode *head) 
 {
-    struct ListNode *slow = head;
-    struct ListNode *fast = head;
     
-    while (fast != NULL && fast->next != NULL)
+    
+    if(head == NULL)
+        return false;
+    
+    struct ListNode *slow  = head;
+    struct ListNode *fast  = head->next;
+    
+    while(slow != fast)
     {
-        slow = slow->next;
-        fast = fast->next->next;
-        
-        if (slow == fast)
+        if(fast == NULL || fast->next == NULL)
         {
-            return true;
+            return false;
         }
+        slow  = slow->next;
+        fast  = fast->next->next;
     }
-    
-    return false;
+    return true;
     
 }
