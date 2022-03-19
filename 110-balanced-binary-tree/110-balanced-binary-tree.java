@@ -39,9 +39,9 @@ class Solution
         }
         
         int depthLeft = findDepth(root.left);
+        // System.out.println("Left val: " + root.val);
         int depthRight = findDepth(root.right);
-        
-        // System.out.println("Left: " + depthLeft + " val: " + root.val + " Right: " + depthRight); 
+        // System.out.println("Right val: " + root.val);
         
         if (Math.abs(depthLeft - depthRight) > 1)
         {
