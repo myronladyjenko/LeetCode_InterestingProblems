@@ -39,7 +39,7 @@ class Solution
                 num = digits[i] + toGo;
             }
             
-            System.out.println(num);
+            // System.out.println(num);
             
             if (num >= 10)
             {
