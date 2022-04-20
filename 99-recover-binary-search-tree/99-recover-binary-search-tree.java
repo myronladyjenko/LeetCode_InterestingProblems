@@ -17,6 +17,7 @@ class Solution
 {
     TreeNode curr = null;
     TreeNode next = null;
+    // storage for the second node to be swapped 
     TreeNode prev = null;
     
     public void recoverTree(TreeNode root) 
@@ -47,17 +48,14 @@ class Solution
             if (curr == null)
             {
                 curr = prev;
-                next = root;
             }
-            else
-            {
-                next = root;
-            }
+      
+            next = root;
         }
         
         prev = root;
         
-        // System.out.println(root.val + " ");
+        // System.out.println(prev.val + " ");
         
         inOrder(root.right);
         
