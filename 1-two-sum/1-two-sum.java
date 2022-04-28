@@ -2,20 +2,26 @@ class Solution
 {
     public int[] twoSum(int[] nums, int target) 
     {
-        Map<Integer, Integer> table = new HashMap<>();
-        int[] arr = new int[2];
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        int[] returnIndex = new int[2];
+        int checkVal = 0;
         
-        for (int i=0; i<nums.length; i++)
+        for (int i = 0; i < nums.length; i++)
         {
-            int check = target - nums[i];
-            if (table.containsKey(check))
+            checkVal = target - nums[i];
+            returnIndex[0] = i;
+            
+            if (!map.containsKey(checkVal))
             {
-               arr[0]=i;
-               arr[1]=table.get(check);
-               break;
+                map.put(nums[i], i);
             }
-            table.put(nums[i], i);
+            else
+            {
+                returnIndex[1] = map.get(checkVal);
+                break;
+            }
         }
-      return arr;
+        
+        return returnIndex;
     }
 }
