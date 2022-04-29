@@ -34,6 +34,7 @@ class Solution
             }
         }
         
+        /*
         if (profit <= 0)
         {
             return 0;
@@ -41,7 +42,9 @@ class Solution
         else
         {
             return profit;
-        }
+        } */
+        
+        return profit;
         
     }
 }
