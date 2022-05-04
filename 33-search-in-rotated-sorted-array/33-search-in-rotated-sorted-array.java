@@ -6,7 +6,6 @@ class Solution
         int left = 0;
         int mid = 0;
         int right = pivot (nums);
-        System.out.println(right);
         
         if (nums[right] == target)
         {
@@ -23,12 +22,9 @@ class Solution
             right = right - 1;
         }
         
-        System.out.println(left + " " + right);
-        
         while (left <= right)
         {
             mid = (left + right) / 2;
-            System.out.println(mid);
             
             if (nums[mid] == target)
             {
